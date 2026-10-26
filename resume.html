@@ -104,41 +104,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{text-decoration:none}
 footer a:hover{text-decoration:underline}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{font-size:17px}</style>
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{font-size:17px}
+/* PDF resume viewer */
+.resume-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.resume-frame{width:100%;height:min(1100px,120vh);min-height:700px;border:1px solid var(--line);background:#fff}
+.resume-document{padding-block:0 clamp(48px,7vw,88px)}
+@media(max-width:600px){.resume-frame{height:78vh;min-height:560px}}
+</style>
 </head><body>
 <header class="nav"><div class="wrap">
 <a class="brand" href="index.html">V. Wallstein</a>
-<nav class="links" aria-label="Main"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="resume.html" aria-current="page">Resume</a><a href="https://www.linkedin.com/in/vincent-wallstein-3a9738361/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
+<nav class="links" aria-label="Main"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="resume.html" aria-current="page">Resume</a><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
 </div></header>
 <main>
-<section class="pagehead"><div class="wrap"><span class="label">Resume</span><h1>Vincent Wallstein</h1>
-<p style="margin:16px 0 0;color:var(--muted)">Laguna Beach, CA / vincent.wallstein@colorado.edu</p></div></section>
-
-<section><div class="wrap sec"><span class="label">Education</span><div>
-<div class="rrow"><span class="when">Aug 2025 to May 2029</span><div><h3>University of Colorado Boulder</h3><p class="role" style="margin-bottom:0">BS Mechanical Engineering / GPA 3.7</p></div></div>
-</div></div></section>
-
-<section><div class="wrap sec"><span class="label">Experience</span><div>
-<div class="rrow"><span class="when">Sep 2025 to present<br>Boulder, CO</span><div><h3>Formula SAE</h3><p class="role">Member, Aerodynamics and Chassis Subteams</p><ul><li>Designed and fabricated jigs and inserts to test carbon alternatives for push rods, tie rods, and toe links</li><li>Assisted in developing the testing procedure and timeline for validation and implementation</li></ul></div></div>
-<div class="rrow"><span class="when">May to July 2026<br>San Diego, CA</span><div><h3>Starlight Cardiovascular</h3><p class="role">Intern, Nitinol Engineer</p><ul><li>Ran regression analysis and statistical modeling on 65+ nitinol stents to quantify relationships between manufacturing parameters and mechanical performance; presented findings to company leadership</li><li>Designed and proposed a 2-factor full factorial DOE to establish FDA-defensible manufacturing tolerances for pediatric cardiac stents; identified an orthogonality conflict due to manufacturing constraints and restructured the design</li></ul></div></div>
-<div class="rrow"><span class="when">Summer 2023, 2024<br>Dongguan, China / Chonburi, Thailand</span><div><h3>Quasar Medical</h3><p class="role">Intern, Mechanical Engineer</p><ul><li>Designed a trimming jig for micro-tubing, ensuring a precise cut without clamping or stretching the material</li><li>Developed and submitted a tube-cutting solution for heart catheter automation using a vacuum channel component; installed in machines producing 15,000+ units annually</li></ul></div></div>
-<div class="rrow"><span class="when">Mar 2021 to 2024<br>Orange County, CA</span><div><h3>Lucent Auto Detailing</h3><p class="role">Founder and Owner</p><ul><li>Built and managed a mobile auto care business, handling marketing, client outreach and scheduling, and finances</li><li>Trained a team of three employees, scaled service capacity, and grew the client base by about 200%, servicing 40+ vehicles per year</li></ul></div></div>
-</div></div></section>
-
-<section><div class="wrap sec"><span class="label">Projects</span><div>
-<div class="rrow"><span class="when">Jan 2026 to present</span><div><h3>Autonomous Security Drone</h3><p class="role">Personal project</p><ul><li>Led mechanical and electrical development of an autonomous drone for motion-triggered surveillance, real-time tracking, and user notification</li><li>Designed the frame and structure in SolidWorks for 3D printing; developed the electrical layout and wiring architecture integrating sensors, flight controller, and power systems</li></ul></div></div>
-<div class="rrow"><span class="when">Jan to May 2026</span><div><h3>Electromagnetic Aircraft Launch System</h3><p class="role">Scaled model, CU Boulder engineering project</p><ul><li>Co-developed a scaled electromagnetic aircraft launch system to reduce commercial aviation emissions during takeoff</li><li>Collaborated with Navy engineers to adapt military EMALS technology for commercial applications</li><li>Spearheaded design and prototyping of coil assemblies and launch sleds in SolidWorks; integrated mechanical components with the electrical circuit model</li><li>Won Best in Section; received special recognition for ingenuity and resourcefulness from ThinkOrbital</li></ul></div></div>
-</div></div></section>
-
-<section><div class="wrap sec"><span class="label">Skills</span><div>
-<ul class="chips"><li>SolidWorks</li><li>AutoCAD</li><li>Onshape</li><li>3D printing</li><li>Soldering and wiring</li><li>Minitab</li><li>Excel</li><li>DOE and regression</li><li>Adobe Illustrator</li><li class="soft">MATLAB (learning)</li><li>German</li><li>Mandarin Chinese</li></ul>
-</div></div></section>
-<section class="band"><div class="wrap">
-<span class="label">Connect</span>
-<h2>Let's talk hardware.</h2>
-<p style="margin:0;max-width:52ch">I am looking for a summer 2027 mechanical engineering internship in aerospace, defense, or automotive. The fastest way to reach me is LinkedIn.</p>
-<div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincent-wallstein-3a9738361/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div>
-</div></section>
+<section class="pagehead"><div class="wrap"><span class="label">Resume / PDF</span><h1>Vincent Wallstein</h1>
+<p style="margin:16px 0 0;color:var(--muted)">View or download my current one-page résumé.</p>
+<div class="resume-actions"><a class="btn solid" href="resume-vincent-wallstein.pdf" download>Download PDF &#8595;</a><a class="btn" href="resume-vincent-wallstein.pdf" target="_blank" rel="noopener">Open PDF in new tab &#8599;</a></div></div></section>
+<section class="resume-document"><div class="wrap"><iframe class="resume-frame" src="resume-vincent-wallstein.pdf" title="Vincent Wallstein résumé PDF"></iframe></div></section>
+<section class="band"><div class="wrap"><span class="label">Connect</span><h2>Let's talk hardware.</h2><p style="margin:0;max-width:52ch">I am looking for a summer 2027 mechanical engineering internship in aerospace, defense, or automotive. The fastest way to reach me is LinkedIn.</p><div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div></div></section>
 </main>
-<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincent-wallstein-3a9738361/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
+<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
 </body></html>

@@ -1,6 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Vincent Wallstein Portfolio</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Vincent Wallstein Portfolio</title><meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout concept: a defense-tech spec sheet. Black field, hairline rules, condensed uppercase type, content set in a label column and a content column. */
@@ -40,6 +38,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--fg);outline-offset:
   background-size:64px 64px;opacity:.55;
   -webkit-mask-image:radial-gradient(ellipse at 75% 30%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse at 75% 30%,#000 0%,transparent 70%)}
 .hero .wrap{position:relative;padding-block:clamp(56px,11vw,140px) clamp(48px,8vw,96px);display:flex;flex-direction:column;gap:28px}
+.hero .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.58fr);align-items:center;gap:clamp(32px,6vw,88px)}
+.hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:28px;min-width:0}
+.hero h1{font-size:clamp(64px,10.5vw,142px)}
+.hero-portrait{display:block;width:100%;max-width:390px;justify-self:end;aspect-ratio:4/5;object-fit:cover;object-position:center 28%;border:1px solid var(--line);filter:saturate(.82);}
+@media(max-width:760px){.hero .hero-layout{grid-template-columns:1fr;gap:30px}.hero-portrait{width:min(74%,300px);justify-self:start;order:2}.hero-copy{order:1}.hero h1{font-size:clamp(60px,16vw,100px)}}
 h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(56px,15vw,176px);line-height:.88;letter-spacing:-.005em;margin:0;text-wrap:balance}
 .lede{max-width:46ch;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--fg)}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
@@ -108,14 +111,17 @@ footer a:hover{text-decoration:underline}
 </style>
 <header class="nav"><div class="wrap">
 <a class="brand" href="index.html">V. Wallstein</a>
-<nav class="links" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="projects.html">Projects</a><a href="resume.html">Resume</a><a href="https://www.linkedin.com/in/vincent-wallstein-3a9738361/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
+<nav class="links" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="projects.html">Projects</a><a href="resume.html">Resume</a><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
 </div></header>
 <main>
-<section class="hero"><div class="wrap">
+<section class="hero"><div class="wrap hero-layout">
+<div class="hero-copy">
 <span class="label">Mechanical Engineering / CU Boulder / Class of 2029</span>
 <h1>Vincent<br>Wallstein</h1>
 <p class="lede">I design and build hardware: a scaled electromagnetic launch system, an autonomous drone, and carbon fiber test rigs for a Formula SAE team.</p>
-<div class="cta"><a class="btn solid" href="projects.html">View projects &#8594;</a><a class="btn" href="resume.html">Resume</a><a class="btn" href="https://www.linkedin.com/in/vincent-wallstein-3a9738361/" target="_blank" rel="noopener">LinkedIn &#8599;</a></div>
+<div class="cta"><a class="btn solid" href="projects.html">View projects &#8594;</a><a class="btn" href="resume.html">Resume</a><a class="btn" href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></div>
+</div>
+<img class="hero-portrait" src="images/vincent-wallstein.jpg" alt="Portrait of Vincent Wallstein">
 </div></section>
 
 <section><div class="wrap sec">
@@ -148,9 +154,9 @@ footer a:hover{text-decoration:underline}
 <span class="label">Connect</span>
 <h2>Let's talk hardware.</h2>
 <p style="margin:0;max-width:52ch">I am looking for a summer 2027 mechanical engineering internship in aerospace, defense, or automotive. The fastest way to reach me is LinkedIn.</p>
-<div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincent-wallstein-3a9738361/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div>
+<div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div>
 </div></section>
 </main>
-<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincent-wallstein-3a9738361/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
+<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
 
 </body></html>

@@ -108,10 +108,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{text-decoration:none}
 footer a:hover{text-decoration:underline}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.card{transition:background .25s ease,transform .25s ease,border-color .25s ease}
+.card:hover{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.card,.card:hover{transform:none}html{scroll-behavior:auto}}
 </style>
 <header class="nav"><div class="wrap">
 <a class="brand" href="index.html">V. Wallstein</a>
-<nav class="links" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="projects.html">Projects</a><a href="resume.html">Resume</a><a href="https://www.linkedin.com/in/vincentwallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
+<nav class="links" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="projects.html">Projects</a><a href="resume.html">Resume</a><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
 </div></header>
 <main>
 <section class="hero"><div class="wrap hero-layout">
@@ -119,12 +125,12 @@ footer a:hover{text-decoration:underline}
 <span class="label">Mechanical Engineering / CU Boulder / Class of 2029</span>
 <h1>Vincent<br>Wallstein</h1>
 <p class="lede">I design and build hardware: a scaled electromagnetic launch system, an autonomous drone, and carbon fiber test rigs for a Formula SAE team.</p>
-<div class="cta"><a class="btn solid" href="projects.html">View projects &#8594;</a><a class="btn" href="resume.html">Resume</a><a class="btn" href="https://www.linkedin.com/in/vincentwallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></div>
+<div class="cta"><a class="btn solid" href="projects.html">View projects &#8594;</a><a class="btn" href="resume.html">Resume</a><a class="btn" href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></div>
 </div>
 <img class="hero-portrait" src="images/vincent-wallstein.jpg" alt="Portrait of Vincent Wallstein">
 </div></section>
 
-<section><div class="wrap sec">
+<section class="reveal"><div class="wrap sec">
 <span class="label">About</span>
 <div>
 <p class="big">Sophomore mechanical engineer who likes hardware that has to work the first time it flies.</p>
@@ -139,7 +145,7 @@ footer a:hover{text-decoration:underline}
 </div>
 </div></section>
 
-<section><div class="wrap sec">
+<section class="reveal"><div class="wrap sec">
 <span class="label">Selected work</span>
 <div>
 <h2>What I've built</h2>
@@ -154,9 +160,22 @@ footer a:hover{text-decoration:underline}
 <span class="label">Connect</span>
 <h2>Let's talk hardware.</h2>
 <p style="margin:0;max-width:52ch">I am looking for a summer 2027 mechanical engineering internship in aerospace, defense, or automotive. The fastest way to reach me is LinkedIn.</p>
-<div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincentwallstein/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div>
+<div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div>
 </div></section>
 </main>
-<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincentwallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
+<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
 
+
+<script>
+(() => {
+  const items = document.querySelectorAll('.reveal');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('is-visible')); return;
+  }
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+  }), { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+  items.forEach(el => observer.observe(el));
+})();
+</script>
 </body></html>

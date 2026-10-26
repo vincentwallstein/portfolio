@@ -110,18 +110,37 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 .resume-frame{width:100%;height:min(1100px,120vh);min-height:700px;border:1px solid var(--line);background:#fff}
 .resume-document{padding-block:0 clamp(48px,7vw,88px)}
 @media(max-width:600px){.resume-frame{height:78vh;min-height:560px}}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.card{transition:background .25s ease,transform .25s ease,border-color .25s ease}
+.card:hover{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.card,.card:hover{transform:none}html{scroll-behavior:auto}}
 </style>
 </head><body>
 <header class="nav"><div class="wrap">
 <a class="brand" href="index.html">V. Wallstein</a>
-<nav class="links" aria-label="Main"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="resume.html" aria-current="page">Resume</a><a href="https://www.linkedin.com/in/vincentwallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
+<nav class="links" aria-label="Main"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="resume.html" aria-current="page">Resume</a><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
 </div></header>
 <main>
 <section class="pagehead"><div class="wrap"><span class="label">Resume / PDF</span><h1>Vincent Wallstein</h1>
 <p style="margin:16px 0 0;color:var(--muted)">View or download my current one-page résumé.</p>
 <div class="resume-actions"><a class="btn solid" href="resume-vincent-wallstein.pdf" download>Download PDF &#8595;</a><a class="btn" href="resume-vincent-wallstein.pdf" target="_blank" rel="noopener">Open PDF in new tab &#8599;</a></div></div></section>
 <section class="resume-document"><div class="wrap"><iframe class="resume-frame" src="resume-vincent-wallstein.pdf" title="Vincent Wallstein résumé PDF"></iframe></div></section>
-<section class="band"><div class="wrap"><span class="label">Connect</span><h2>Let's talk hardware.</h2><p style="margin:0;max-width:52ch">I am looking for a summer 2027 mechanical engineering internship in aerospace, defense, or automotive. The fastest way to reach me is LinkedIn.</p><div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincentwallstein/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div></div></section>
+<section class="band"><div class="wrap"><span class="label">Connect</span><h2>Let's talk hardware.</h2><p style="margin:0;max-width:52ch">I am looking for a summer 2027 mechanical engineering internship in aerospace, defense, or automotive. The fastest way to reach me is LinkedIn.</p><div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div></div></section>
 </main>
-<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincentwallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
+<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
+
+<script>
+(() => {
+  const items = document.querySelectorAll('.reveal');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('is-visible')); return;
+  }
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+  }), { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+  items.forEach(el => observer.observe(el));
+})();
+</script>
 </body></html>

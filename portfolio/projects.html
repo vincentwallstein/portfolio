@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Projects | Vincent Wallstein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: a defense-tech spec sheet. Black field, hairline rules, condensed uppercase type, content set in a label column and a content column. */
+:root{
+  --bg:#000; --bg2:#0b0b0b; --fg:#f2f2f2; --muted:#8d8d8d; --line:#262626; --inv-bg:#f2f2f2; --inv-fg:#000;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#f3f3f3;--bg2:#fff;--fg:#0a0a0a;--muted:#5e5e5e;--line:#d2d2d2;--inv-bg:#0a0a0a;--inv-fg:#f3f3f3;color-scheme:light}
+}
+:root[data-theme="light"]{--bg:#f3f3f3;--bg2:#fff;--fg:#0a0a0a;--muted:#5e5e5e;--line:#d2d2d2;--inv-bg:#0a0a0a;--inv-fg:#f3f3f3;color-scheme:light}
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:14px}
+.brand{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.links{display:flex;gap:6px 22px;flex-wrap:wrap}
+.links a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:4px 0;border-bottom:1px solid transparent}
+.links a:hover,.links a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--fg)}
+
+/* hero */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;opacity:.55;
+  -webkit-mask-image:radial-gradient(ellipse at 75% 30%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse at 75% 30%,#000 0%,transparent 70%)}
+.hero .wrap{position:relative;padding-block:clamp(56px,11vw,140px) clamp(48px,8vw,96px);display:flex;flex-direction:column;gap:28px}
+h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(56px,15vw,176px);line-height:.88;letter-spacing:-.005em;margin:0;text-wrap:balance}
+.lede{max-width:46ch;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--fg)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--fg);padding:14px 22px;display:inline-flex;gap:10px;align-items:center;background:transparent;color:var(--fg);cursor:pointer}
+.btn:hover{background:var(--inv-bg);color:var(--inv-fg)}
+.btn.solid{background:var(--inv-bg);color:var(--inv-fg)}
+.btn.solid:hover{background:transparent;color:var(--fg)}
+
+/* sections */
+section{border-bottom:1px solid var(--line)}
+.sec{display:grid;grid-template-columns:1fr;gap:20px;padding-block:clamp(40px,7vw,88px)}
+@media(min-width:860px){.sec{grid-template-columns:220px minmax(0,1fr);gap:48px}}
+h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(34px,5vw,56px);line-height:1;margin:0 0 20px;letter-spacing:.005em;text-wrap:balance}
+.sec p{margin:0 0 16px;max-width:62ch}
+.sec p.big{font-size:clamp(20px,2.6vw,28px);line-height:1.35;max-width:34ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--line);margin-top:28px}
+.fact{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:-1px -1px 0 0;min-width:0}
+.fact b{display:block;font-family:var(--display);font-size:24px;letter-spacing:.04em;text-transform:uppercase;line-height:1.1;margin-top:6px}
+
+/* project cards on home */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;border:1px solid var(--line)}
+.card{padding:24px;border-right:1px solid var(--line);margin-right:-1px;display:flex;flex-direction:column;gap:12px;text-decoration:none;background:var(--bg);min-width:0}
+.card:hover{background:var(--bg2)}
+.card h3{font-family:var(--display);font-size:28px;line-height:1.05;text-transform:uppercase;margin:0}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card .go{margin-top:auto;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+
+/* project rows */
+.proj{display:grid;grid-template-columns:1fr;gap:28px;padding-block:clamp(36px,6vw,72px);border-bottom:1px solid var(--line)}
+.proj:last-of-type{border-bottom:0}
+@media(min-width:900px){.proj{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:64px}}
+.proj h2{font-size:clamp(34px,5.4vw,60px);margin:10px 0 18px}
+.proj p{margin:0 0 14px;max-width:60ch}
+.spec{margin:0;border:1px solid var(--line);align-self:start;background:var(--bg2)}
+.spec div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.spec div:last-child{border-bottom:0}
+.spec dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:3px;margin:0}
+.spec dd{margin:0}
+
+/* page head */
+.pagehead .wrap{padding-block:clamp(44px,8vw,100px) clamp(28px,5vw,56px)}
+.pagehead h1{font-size:clamp(52px,12vw,140px)}
+
+/* resume */
+.rrow{display:grid;grid-template-columns:1fr;gap:6px;padding-block:20px;border-top:1px solid var(--line)}
+.rrow:first-of-type{border-top:0;padding-top:0}
+@media(min-width:760px){.rrow{grid-template-columns:200px minmax(0,1fr);gap:32px}}
+.rrow .when{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rrow h3{font-family:var(--display);font-size:26px;text-transform:uppercase;margin:0;line-height:1.1}
+.rrow .role{color:var(--muted);margin:2px 0 8px;font-size:15px}
+.rrow ul{margin:0;padding-left:18px;max-width:68ch}
+.rrow li{margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{font-family:var(--mono);font-size:13px;border:1px solid var(--line);padding:6px 12px}
+.chips li.soft{color:var(--muted);border-style:dashed}
+
+/* linkedin band */
+.band{border-bottom:1px solid var(--line)}
+.band .wrap{padding-block:clamp(48px,8vw,104px);display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.band h2{font-size:clamp(40px,8vw,104px);margin:0}
+footer{padding-block:28px 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{font-size:17px}</style>
+</head><body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="index.html">V. Wallstein</a>
+<nav class="links" aria-label="Main"><a href="index.html">Home</a><a href="projects.html" aria-current="page">Projects</a><a href="resume.html">Resume</a><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></nav>
+</div></header>
+<main>
+<section class="pagehead"><div class="wrap"><span class="label">Projects</span><h1>Selected work</h1></div></section>
+<section><div class="wrap">
+<article class="proj" id="emals"><div><span class="label">CU Boulder / Jan to May 2026</span><h2>Electromagnetic Aircraft Launch System</h2><p>A scaled model that adapts the Navy's EMALS technology, which launches aircraft off carriers, to reduce emissions during commercial takeoff. Our team worked with Navy engineers on how to bring military launch technology to a commercial setting.</p><p>I led design and prototyping of the coil assemblies and launch sled in SolidWorks, then integrated the mechanical build with the electrical circuit model.</p></div><dl class="spec"><div><dt>Role</dt><dd>Design and prototyping lead for coil assemblies and launch sled</dd></div><div><dt>Tools</dt><dd>SolidWorks</dd></div><div><dt>Result</dt><dd>Best in Section. Special recognition for ingenuity and resourcefulness from ThinkOrbital, an orbital defense and robotics company.</dd></div><div><dt>Partners</dt><dd>Navy engineers</dd></div></dl></article>
+<article class="proj" id="drone"><div><span class="label">Personal project / Jan 2026 to present</span><h2>Autonomous Security Drone</h2><p>A drone built for motion-triggered surveillance, real-time tracking, and user notification. I own the mechanical and electrical development.</p><p>The challenge was fitting the sensors, flight controller, and power system inside a 3D printed frame while teammates worked on software. Every subsystem interface had to be settled before anything could be printed.</p></div><dl class="spec"><div><dt>Role</dt><dd>Mechanical and electrical lead</dd></div><div><dt>Scope</dt><dd>Frame and structure, electrical layout, wiring architecture</dd></div><div><dt>Tools</dt><dd>SolidWorks, 3D printing, soldering and wiring</dd></div><div><dt>Status</dt><dd>In progress</dd></div></dl></article>
+<article class="proj" id="fsae"><div><span class="label">Formula SAE / Sep 2025 to present</span><h2>Carbon Fiber Validation</h2><p>On the Aerodynamics and Chassis subteams, I test carbon fiber alternatives for push rods, tie rods, and toe links.</p><p>I designed and 3D printed the test jigs and inserts. The parts come in several lengths, diameters, and thicknesses, so the main challenge was designing a universal jig that reduces how many unique jigs we need. I also helped develop the testing procedure and timeline for validation.</p></div><dl class="spec"><div><dt>Role</dt><dd>Test jig design, validation procedure</dd></div><div><dt>Tools</dt><dd>SolidWorks, 3D printing</dd></div><div><dt>Team</dt><dd>300+ members</dd></div><div><dt>Status</dt><dd>Ongoing</dd></div></dl></article>
+<article class="proj" id="nitinol"><div><span class="label">Starlight Cardiovascular / May to July 2026</span><h2>Nitinol Stent Analysis</h2><p>I ran regression and statistical modeling on 65+ nitinol stents to measure how manufacturing parameters affect mechanical performance, and presented the findings to company leadership.</p><p>I then designed a 2-factor full factorial DOE to set FDA-defensible manufacturing tolerances for pediatric cardiac stents. A manufacturing constraint created an orthogonality conflict, so I restructured the design to work around it.</p></div><dl class="spec"><div><dt>Role</dt><dd>Intern, Nitinol Engineer</dd></div><div><dt>Tools</dt><dd>Minitab, Excel, DOE, regression</dd></div><div><dt>Result</dt><dd>Findings presented to company leadership</dd></div><div><dt>Location</dt><dd>San Diego, CA</dd></div></dl></article>
+</div></section>
+<section class="band"><div class="wrap">
+<span class="label">Connect</span>
+<h2>Let's talk hardware.</h2>
+<p style="margin:0;max-width:52ch">I am looking for a summer 2027 mechanical engineering internship in aerospace, defense, or automotive. The fastest way to reach me is LinkedIn.</p>
+<div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">Open LinkedIn &#8599;</a></div>
+</div></section>
+</main>
+<footer><div class="wrap"><span class="label">Vincent Wallstein / CU Boulder Mechanical Engineering</span><span class="label"><a href="https://www.linkedin.com/in/vincent-wallstein/" target="_blank" rel="noopener">LinkedIn &#8599;</a></span></div></footer>
+</body></html>
